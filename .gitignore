@@ -1,0 +1,6 @@
+prob
+build/
+*.env
+*.o
+*.exe
+*.bin
