@@ -68,11 +68,18 @@ Event *define_event(bool (*condition)(int), Pair bounds) {
     return e;
 }
 
+void print_event_space(const Event *e) {
+  printf("{");  
+  for (size_t i = 0; i < e->size; ++i) {
+    if (i < e->size - 1)
+      printf("%d, ", e->data[i]);
+    else printf("%d}\n", e->data[i]);
+  }  
+}
+
 int main(void) {
     Pair bound = { 1, 4 };
     Event *test = define_event(equal_two, bound);
-    for (size_t i=0; i<test->size; ++i) {
-        printf("%d\n", test->data[i]);
-    }
+    print_event_space(test);
     free(test->data);
 }
